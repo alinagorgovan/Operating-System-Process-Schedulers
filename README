@@ -1,0 +1,59 @@
+Gorgovan Alina-Valentina
+324CB
+
+Tema1
+
+FISIERE: 24 de clase
+
+CacheMemory.java     
+Fibonacci.java          
+LruCacheStructure.java  
+RandomScheduler.java
+CacheStructure.java  
+HomeworkReader.java     
+MainClass.java          
+RoundRobinScheduler.java
+CheckPrime.java      
+HomeworkWriter.java     
+NextPrime.java          
+Scheduler.java
+CheckProcess.java    
+LfuCacheMemory.java     
+ProblemData.java        
+Sqrt.java
+Cube.java            
+LfuCacheStructure.java  
+ProcessStructure.java   
+Square.java
+Factorial.java       
+LruCacheMemory.java     
+ProcessTypes.java       
+WeightedScheduler.java
+
+TIPURI PROCESE:
+Fiecare tip de proces a fost implementat intr-o clasa separata, dar toate mostenesc clasa abstracta ProcessTypes si implementeaza metoda process care returneaza rezultatul numarului procesat.
+
+SCHEDULER:
+Clasa abstracta Scheduler defineste cele doua metode de planificare si anume scheduleNc, care planifica in cazul in care nu exista cache, si scheduleCache in cazul in care se foloseste memoria cache.
+
+RandomScheduler:
+Clasa RandomScheduler implementeaza cele doua metode abstracte si o alta metoda getRandom care returneaza un numar la intamplare. Cele doua metode se bazeaza pe acelasi principiu, alegerea unui proces random din vectorul de procese si aplicarea procesului asupra numarului. In cazul in care exista memorie cache se folosesc metodele din LfuCacheMemory sau LruCacheMemory pentru procesarea numarului.
+
+RoundRobinScheduler:
+Clasa RoundRobinScheduler implementeaza cele doua metode abstracte din Scheduler.
+In cazul RoundRobin vectorul de procese se parcurge in ordine pana cand se termina numerele astfel incat intre doua procese sa nu fie diferenta de 1 utilizare.
+In cazul in care exista memorie cache se folosesc metodele din LfuCacheMemory sau LruCacheMemory pentru procesarea numarului.
+
+WeightedScheduler:
+WeightedScheduler implementeaza cele doua metode abstracte din Scheduler si alte doua metode gcd2 care returneaza cmmdc dintre doua numere si gcdOfArray care returneaza cmmdc dintr-un vector de numere.
+Principiul de functionare se bazeaza pe numarul de utilizari al fiecarui proces salvat in vectorul nr. Variabila t a fost calculata conform formulei din cerinta. La fiecare t numere procesate vectorul de utilizari nr de reseteaza la 0. Pentru fiecare proces se compara numarul de utilizari din vector cu cota/cmmdc(cote) iar cat timp acesta este mai mic se va utiliza procesul respectiv.
+In cazul in care exista memorie cache se folosesc metodele din LfuCacheMemory sau LruCacheMemory pentru procesarea numarului.
+
+CACHE:
+Pentru a implementa memoria cache am creat mai intai clasa CacheStructure ce are ca atribute processName, in si out, campuri unde se vor salva numele procesului aplicat asupra numarului si rezultatul. Clasele LruCacheStructure si LfuCacheStructure mostenesc clasa CacheStructure iar in cazul Lfu apare un camp nou freq in care se va salva numarul de utilizari al elementului in vetorul de structuri.
+
+Clasa abstracta CacheMemory descrie cele doua metode specifice si anume add care adauga un element nou in vectorul cache si metoda implement care intoarce rezultatul deja existent din vector sau il proceseaza si il adauga cu ajutorul functidei add.
+Metodele sunt implementate in clasele LfuCacheMemory si LruCacheMemory care mostenesc CacheMemory conform principiilor de functionare.
+
+
+
